@@ -37,7 +37,7 @@
 <!--    <icon src='icons/android/ldpi.png' platform='android' qualifier='ldpi' />-->
     
 <!--  ==============  Icon à changer ============== -->
-    <icon src="icon_V2.png"/> 
+    <icon src="logo-VIRKA.png"/> 
 <!--==========================================-->
 
 </platform>
@@ -52,10 +52,10 @@
 </platform>
 <!--==========================================-->
 <platform name = 'winphone'>
- <icon src="icon_V2.png"/> 
+ <icon src="logo-VIRKA.png"/> 
 </platform>
     
-<!-- <icon src="icon_V2.png"/>   -->
+<!--<icon src="logo-VIRKA.png"/>-->
   <description>
       Carte de membre Virka.
   </description>
