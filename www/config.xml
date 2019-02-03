@@ -103,9 +103,9 @@
  <icon src="icon.png"/> 
 </platform>
     
-<!--<icon src="logo-VIRKA.png"/>-->
+<icon src="icon.png"/>
   <description>
-      Carte de membre Virka lol.
+      Carte de membre Virka.
   </description>
 
   <author href="www.amcreatives.ca" email="aboubakr.mekhatria@gmail.com">
