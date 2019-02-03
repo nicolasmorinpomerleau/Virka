@@ -77,6 +77,29 @@ $(function(){
             compagnyID.innerHTML = localStorage.compagny; 
             numeroID             = document.getElementById("Numero");
             numeroID.innerHTML   = localStorage.membreNumber;
+            
+            //        setup display in html
+        localStorage.booloffers = true;
+        if(localStorage.booloffers){
+            document.getElementById("OffresSpeciale").style.visibility="hidden";
+        }
+        
+        if(!localStorage.boolevents ){
+            
+        }
+        
+        if(!localStorage.boolmarchandlist){
+            
+        }
+
+        if(!localStorage.boolrestauration){
+            
+        }
+
+        if(!localStorage.boolservices){
+    
+        }
+            
             window.location.href = "#page2";
             }
          else{
@@ -87,7 +110,6 @@ $(function(){
 function Validate(){        
     email = document.getElementById('email').value;
     code  = document.getElementById('code').value; 
-    url  = document.getElementById('url').value;
     
     $.ajax({
     url:'https://5m1qfi37ie.execute-api.eu-west-1.amazonaws.com/Dev/emailCode',
@@ -95,7 +117,7 @@ function Validate(){
     type: 'POST',
     dataType: 'json',
     contentType: 'application/json',
-    data: JSON.stringify({email, code, url}),
+    data: JSON.stringify({email, code}),
             
     success: function(res) {
     if(res.answer == 'userFind'){
@@ -104,19 +126,46 @@ function Validate(){
     compagnyID           = document.getElementById("compagny");
     compagnyID.innerHTML = res.info.company;
     numeroID           = document.getElementById("Numero");
-    numeroID.innerHTML =   "#"+res.info.memberNumber;
-    urlMarchands       = res.info.urlMarchands;
-    urlEvents          = res.info.urlEvents;
-    urlOffers          = res.info.urlOffers;
+    numeroID.innerHTML = "#"+res.info.memberNumber;
+//    urlRestauration       = res.info.restauration;
+//    urlMobilier           = res.info.mobilier;
+//    urlService            = res.info.service;
+//    urlProvinciaux        = res.info.provinciaux;
+//    urlAutres             = res.info.autres;
+//    urlEvents          = res.info.urlEvents;
+//    urlOffers          = res.info.urlOffers;
+//    codeBar            = res.info.codeBar;     
     localStorage.Email         = email;
     localStorage.code          = code;
+
+//        display rules
+    localStorage.booloffers       = res.info.booloffers;
+    localStorage.boolevents       = res.info.boolevents;
+    localStorage.boolmarchandlist = res.info.boolmarchandlist;
+    localStorage.boolrestauration = res.info.boolrestauration;
+    localStorage.boolservices     = res.info.boolservices;
+    localStorage.boolmobilier     = res.info.boolmobilier;
+    localStorage.boolprovinciaux  = res.info.boolprovinciaux;
+
+//        pour afficher sur la carte
     localStorage.name          = res.info.name;
     localStorage.compagny      = res.info.company;
     localStorage.membreNumber  = "#"+res.info.memberNumber;
-    localStorage.urlMarchands  = urlMarchands;
-    localStorage.urlEvents     = urlEvents;
-    localStorage.urlOffers     = urlOffers;
-
+        
+//        url WebView
+//    localStorage.urlEvents     = urlEvents;
+//    localStorage.urlOffers     = urlOffers;
+        
+//        code bar du membre
+//    localStorage.codeBar       = codeBar;   
+    
+//        url des fichiers JSON
+//    localStorage.mobilier       = urlMobilier;
+//    localStorage.restauration   = urlRestauration;
+//    localStorage.service        = urlService;
+//    localStorage.provinciaux    = urlProvinciaux;
+//    localStorage.autre          = urlAutres;
+        
     window.location.href = "#page2";
     }
     else{

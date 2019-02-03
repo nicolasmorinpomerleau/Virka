@@ -51,7 +51,7 @@ img
 /*    text-align: right;    */
     font-size: 3vw;
     position: relative;
-    float: right;
+    float: left;
     font-family: "Century Gothic",sans-serif;
     color: gray;
 /*    height: 50%;*/
@@ -60,21 +60,21 @@ img
 
 #name{
 /*  display: inline-block;*/
-  text-align: right;    
+  text-align: left;    
     font-size: 4vw;
 /*    top: 15vw;*/
     position: relative;
-    float: right;
+    float: left;
     font-family: "Century Gothic",sans-serif
 }
 
 #compagny{
 /*  display: inline-block;*/
-  text-align: right;
+  text-align: left;
     font-size: 4vw;
 /*    top: 19vw;*/
     position: relative;
-    float: right;
+    float: left;
     font-family: "Century Gothic",sans-serif;
     color: gray
 }
@@ -125,10 +125,13 @@ img
     border: solid;
     display: grid;
 /*    last values 28 28 34*/
-    grid-template-rows: 10% 15% 25% 15% 22% 12%;
+/*    grid-template-rows: 10% 15% 25% 15% 22% 12%;*/
+    grid-template-rows: 10% 23% 32% 25% 14%;
     padding: 0.5em;
     grid-row-gap: 2px;
-    box-shadow: 0 10px 6px -6px black;
+    box-shadow: 0 10px 12px -6px black;
+    border-width:thin;
+    background-color: #a9a3a824;
 }
 
 .grid2{
