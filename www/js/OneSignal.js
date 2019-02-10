@@ -32,16 +32,3 @@ document.addEventListener("deviceready", onDeviceReady, false);
         .endInit();
 };
 
-//To create tags for user's segmentation
-OneSignal.push(function() {
-  /* These examples are all valid */
-  OneSignal.sendTag("entreprise", "amcreatives");
-               
-//  OneSignal.sendTag("key", "value", function(tagsSent) {
-//    // Callback called when tags have finished sending
-//  });
-               
-//  OneSignal.sendTag("key", "value").then(function(tagsSent) {
-//    // Callback called when tags have finished sending
-//  });  
-});

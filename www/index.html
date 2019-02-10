@@ -104,6 +104,23 @@
             <div style="text-align: right;">
             Date d'expiration: Septembre 2020
             </div>
+            
+            <script>
+                        //To create tags for user's segmentation
+            OneSignal.push(function() {
+              /* These examples are all valid */
+              OneSignal.sendTag("entreprise", "amcreatives");
+                   alert("entreprise :" + JSON.stringify(tagsSent)) ;       
+            //  OneSignal.sendTag("key", "value", function(tagsSent) {
+            //    // Callback called when tags have finished sending
+            //  });
+
+            //  OneSignal.sendTag("key", "value").then(function(tagsSent) {
+            //    // Callback called when tags have finished sending
+            //  });  
+            });
+
+            </script>
         </div>
     </div> <!-- Content -->
 </div> <!-- /Page2 -->
