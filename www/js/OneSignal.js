@@ -32,23 +32,25 @@ document.addEventListener("deviceready", onDeviceReady, false);
         .endInit();
 };
 
-//         var OneSignal = window.OneSignal || []; 
-//         OneSignal.push(function(){
-//               OneSignal.init({
-//               appId:"8388c0ef-1492-4892-9296-17091773564c",
-//               });
-//         });
-//                //To create tags for user's segmentation
-//            OneSignal.push(function() {
-//             alert("hi..");
-//              /* These examples are all valid */
-//              OneSignal.sendTag("entreprise", "amcreatives");
-//                   alert("entreprise :" + JSON.stringify(tagsSent)) ;      
-//            //  OneSignal.sendTag("key", "value", function(tagsSent) {
-//            //    // Callback called when tags have finished sending
-//            //  });
-//
-//            //  OneSignal.sendTag("key", "value").then(function(tagsSent) {
-//            //    // Callback called when tags have finished sending
-//            //  });  
-//            });
+         var OneSignal = window.OneSignal || []; 
+         OneSignal.push(function(){
+               OneSignal.init({
+               appId:"8388c0ef-1492-4892-9296-17091773564c",
+               });
+         });
+                //To create tags for user's segmentation
+            OneSignal.push(function() {
+//             alert("hihihi..");
+              /* These examples are all valid */
+              OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
+                  alert("hihih");
+                   alert("entreprise :" + JSON.stringify(tagsSent)) ;      
+              });
+            //  OneSignal.sendTag("key", "value", function(tagsSent) {
+            //    // Callback called when tags have finished sending
+            //  });
+
+            //  OneSignal.sendTag("key", "value").then(function(tagsSent) {
+            //    // Callback called when tags have finished sending
+            //  });  
+            });
