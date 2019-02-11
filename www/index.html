@@ -12,6 +12,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     
+            <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <!--    Not to include for the current version 27 dec 2018-->
     <script type="text/javascript" src="cordova.js"></script>
     <script src="js/OneSignal.js"></script>
@@ -105,12 +106,24 @@
             Date d'expiration: Septembre 2020
             </div>
             
+<!--            Abou-->
+<!--            <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>-->
             <script>
-                        //To create tags for user's segmentation
+                var OneSignal = window.OneSignal || []; 
+                         OneSignal.push(function(){
+               OneSignal.init({
+               appId:"8388c0ef-1492-4892-9296-17091773564c",
+               });
+         });
+                
+                alert("Onesignal: " + OneSignal );
+                //To create tags for user's segmentation
             OneSignal.push(function() {
+                                alert("hi..");
+
               /* These examples are all valid */
               OneSignal.sendTag("entreprise", "amcreatives");
-                   alert("entreprise :" + JSON.stringify(tagsSent)) ;       
+                   alert("entreprise :" + JSON.stringify(tagsSent)) ;      
             //  OneSignal.sendTag("key", "value", function(tagsSent) {
             //    // Callback called when tags have finished sending
             //  });
