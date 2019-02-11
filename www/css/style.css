@@ -126,7 +126,7 @@ img
     display: grid;
 /*    last values 28 28 34*/
 /*    grid-template-rows: 10% 15% 25% 15% 22% 12%;*/
-    grid-template-rows: 10% 23% 32% 25% 14%;
+    grid-template-rows: 12% 23% 32% 25% 14%;
     padding: 0.5em;
     grid-row-gap: 2px;
     box-shadow: 0 10px 12px -6px black;
