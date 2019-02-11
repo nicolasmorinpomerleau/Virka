@@ -32,18 +32,18 @@ document.addEventListener("deviceready", onDeviceReady, false);
         .endInit();
 };
 
-         var OneSignal = window.OneSignal || []; 
-         OneSignal.push(function(){
-               OneSignal.init({
-               appId:"8388c0ef-1492-4892-9296-17091773564c",
-               });
-         });
+//         var OneSignal = window.OneSignal || []; 
+//         OneSignal.push(function(){
+//               OneSignal.init({
+//               appId:"8388c0ef-1492-4892-9296-17091773564c",
+//               });
+//         });
                 //To create tags for user's segmentation
             OneSignal.push(function() {
-//             alert("hihihi..");
+             alert("Start 1 ..");
               /* These examples are all valid */
               OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
-                  alert("hihih");
+                  alert("Start 2..");
                    alert("entreprise :" + JSON.stringify(tagsSent)) ;      
               });
             //  OneSignal.sendTag("key", "value", function(tagsSent) {
