@@ -12,9 +12,10 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     
-            <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<!--            <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>-->
 <!--    Not to include for the current version 27 dec 2018-->
     <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/OneSignalSDK.js"></script>
     <script src="js/OneSignal.js"></script>
     <script src="js/engine.js"></script>
     <script src="js/JsBarcode.all.min.js"></script>
@@ -119,7 +120,7 @@
                 alert("Onesignal: " + OneSignal );
                 //To create tags for user's segmentation
             OneSignal.push(function() {
-                                alert("hi..");
+                                alert("hihihi..");
 
               /* These examples are all valid */
               OneSignal.sendTag("entreprise", "amcreatives");
