@@ -42,10 +42,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
             OneSignal.push(function() {
              alert("Start 1 ..");
               /* These examples are all valid */
-              OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
+//              OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
+//                  alert("Start 2..");
+//                   alert("entreprise :" + JSON.stringify(tagsSent)) ;      
+//              });
+                OneSignal.sendTag("entreprise", "amcreatives", function(tagsSent){
                   alert("Start 2..");
                    alert("entreprise :" + JSON.stringify(tagsSent)) ;      
               });
+                
             //  OneSignal.sendTag("key", "value", function(tagsSent) {
             //    // Callback called when tags have finished sending
             //  });
