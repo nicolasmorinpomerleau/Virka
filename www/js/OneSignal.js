@@ -46,7 +46,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //                  alert("Start 2..");
 //                   alert("entreprise :" + JSON.stringify(tagsSent)) ;      
 //              });
-                OneSignal.sendTag("entreprise", "amcreatives", function(tagsSent){
+                OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
                   alert("Start 2..");
                    alert("entreprise :" + JSON.stringify(tagsSent)) ;      
               });
