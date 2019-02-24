@@ -59,15 +59,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
                 var retourner = OneSignal.sendTags(
                     {
                       "entreprise": "amcreatives",
-                      "entreprise_1": "amcreatives_1"
-                    }, 
+                      "entreprise_1": "amcreatives_1",
+                   
                     onSuccess : function(){  
                         alert("Success tags.. ") ;
                        },
                     onFailure : function(tagsend) { 
                         alert("Failure tags.. "+ tagsend) ;
                        }
-                    );
+                     });
                    
                 
                 
