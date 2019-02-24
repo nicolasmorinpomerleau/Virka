@@ -5,7 +5,6 @@
     versionCode = "02"      
    version     = "1.0.1" > 
 <access origin="https://5m1qfi37ie.execute-api.eu-west-1.amazonaws.com/Dev/emailCode"/>
-<access origin = "https://cdn.onesignal.com/sdks/OneSignalSDK.js"/>
 <access origin="https://s3-eu-west-1.amazonaws.com/virtualcard/*"/>
 
     
