@@ -47,15 +47,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //                   alert("entreprise :" + JSON.stringify(tagsSent)) ;      
 //              });
 //                var retourner = OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
-                var retourner = OneSignal.sendTags({
-            sub_url: window.location.href,
-            topic: 'tags'
-          }).then(function(tagsSent){
-                  alert("Start 2..");
+                var retourner = OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
+                    alert("Start 2..");
                    alert("entreprise :" + JSON.stringify(tagsSent)) ;      
-              }).catch( function(message){
-                    alert("message :" + message );
-                 console.log(message);});
+              }).catch(function(message){
+                    alert("message :" + message);
+                    console.log(message);
+                });
                 alert(" retourner : " +retourner );
                 
             //  OneSignal.sendTag("key", "value", function(tagsSent) {
