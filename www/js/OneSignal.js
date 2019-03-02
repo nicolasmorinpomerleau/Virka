@@ -30,6 +30,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
         .startInit("8388c0ef-1492-4892-9296-17091773564c")
         .handleNotificationOpened(notificationOpenedCallback)
         .endInit();
+      
+        OneSignal.push(function() {
+                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
+            });
 };
 
 //         var OneSignal = window.OneSignal || []; 
@@ -58,3 +62,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //                    console.log(message);
 //                }); 
             });
+
+//            OneSignal.push(function() {
+//                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
+//            });
