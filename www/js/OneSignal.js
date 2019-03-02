@@ -47,36 +47,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //                   alert("entreprise :" + JSON.stringify(tagsSent)) ;      
 //              });
 //                var retourner = OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
-                window.plugins.OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
-//                var retourner = OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
+//                window.plugins.OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
+                var retourner = OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
                     alert("Start 2..");
                    alert("entreprise :" + JSON.stringify(tagsSent)) ;      
               }).catch(function(message){
                     alert("message :" + message);
                     console.log(message);
                 });
-                
-//                var retourner = OneSignal.sendTags(
-//                    {
-//                      "entreprise": "amcreatives",
-//                      "entreprise_1": "amcreatives_1",
-//                   
-//                    onSuccess : function(){  
-//                        alert("Success tags.. ") ;
-//                       },
-//                    onFailure : function(tagsend) { 
-//                        alert("Failure tags.. "+ tagsend) ;
-//                       }
-//                     });
-            //  OneSignal.sendTag("key", "value", function(tagsSent) {
-            //    // Callback called when tags have finished sending
-            //  });
-
-            //  OneSignal.sendTag("key", "value").then(function(tagsSent) {
-            //    // Callback called when tags have finished sending
-            //  });  
+ 
             });
-
-
-
-
