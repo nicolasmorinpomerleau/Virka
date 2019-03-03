@@ -31,9 +31,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
         .handleNotificationOpened(notificationOpenedCallback)
         .endInit();
       
-        OneSignal.push(function() {
-                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
-            });
+//        OneSignal.push(function() {
+//                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
+//            });
+                      window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
+
 };
 
 //         var OneSignal = window.OneSignal || []; 
@@ -43,7 +45,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //               });
 //         });
 
-                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
 
                 //To create tags for user's segmentation
             OneSignal.push(function() {
