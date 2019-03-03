@@ -42,16 +42,19 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //               appId:"8388c0ef-1492-4892-9296-17091773564c",
 //               });
 //         });
+
+                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
+
                 //To create tags for user's segmentation
             OneSignal.push(function() {
-             alert("Start 1 ..");
+//             alert("Start 1 ..");
               /* These examples are all valid */
 //              OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
 //                  alert("Start 2..");
 //                   alert("entreprise :" + JSON.stringify(tagsSent)) ;      
 //              });
 //                var retourner = OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
-                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
+//                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
                 
 //                    .then(function(tagsSent){
 ////                var retourner = OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){
@@ -66,3 +69,19 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //            OneSignal.push(function() {
 //                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
 //            });
+
+
+
+//  function onDeviceReady(){
+//
+//    var notificationOpenedCallback = function(jsonData) {
+//    };
+//      window.plugins.OneSignal
+//        .startInit("8388c0ef-1492-4892-9296-17091773564c")
+//        .handleNotificationOpened(notificationOpenedCallback)
+//        .endInit();
+//      
+//        OneSignal.push(function() {
+//                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
+//            });
+//};
