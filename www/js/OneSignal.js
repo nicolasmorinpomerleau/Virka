@@ -27,7 +27,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //    alert(" Init ready");
 //      window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
       window.plugins.OneSignal
-        .startInit("8388c0ef-1492-4892-9296-17091773564c")
+//        .startInit("8388c0ef-1492-4892-9296-17091773564c")  this the old for ccsg Card
+          .startInit("13813650-6d06-48d4-b331-d248c0352a2c")
         .handleNotificationOpened(notificationOpenedCallback)
         .endInit();
       
