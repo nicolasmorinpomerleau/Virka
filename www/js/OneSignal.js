@@ -36,7 +36,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
 //            });
 //                      window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
-                      window.plugins.OneSignal.sendTag("entreprise", tag);
+                      window.plugins.OneSignal.sendTag("organisation", tag);
 
 };
 
