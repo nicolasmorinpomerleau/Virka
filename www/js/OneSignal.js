@@ -29,13 +29,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
       window.plugins.OneSignal
 //        .startInit("8388c0ef-1492-4892-9296-17091773564c")  this the old for ccsg Card
           .startInit("13813650-6d06-48d4-b331-d248c0352a2c")
-        .handleNotificationOpened(notificationOpenedCallback)
-        .endInit();
-      
+          .handleNotificationOpened(notificationOpenedCallback)
+          .endInit();
+      var tag = localStorage.organisation;
 //        OneSignal.push(function() {
 //                window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
 //            });
-                      window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
+//                      window.plugins.OneSignal.sendTag("entreprise", "amcreatives");
+                      window.plugins.OneSignal.sendTag("entreprise", tag);
 
 };
 
@@ -48,7 +49,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
                 //To create tags for user's segmentation
-            OneSignal.push(function() {
+            OneSignal.push(function(){
 //             alert("Start 1 ..");
               /* These examples are all valid */
 //              OneSignal.sendTag("entreprise", "amcreatives").then(function(tagsSent){

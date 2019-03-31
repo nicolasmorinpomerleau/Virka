@@ -72,8 +72,13 @@
 <div data-role="page" id="page2">
     <div data-role="header" data-theme="b">
         <h1> </h1>
-        <a data-id="persistent" href="#page3" data-transition="slide" onclick="ListeDesMarchands()"> Liste des marchands</a>
-         <a data-id="persistent"  onclick="events()"> Événements</a>
+
+    <a data-id='persistent' href="#page3" id="ListeDesMarchands" data-transition="slide" > Liste des marchands </a>
+<!--       onclick="ListeDesMarchands()" -->
+ <a data-id="persistent" id="events" onclick="events()"> Événements</a>
+        
+<!--        <a data-id="persistent"  onclick="localStorage.clear()">clear</a>-->
+
     </div> <!-- header -->
      <div role="main" class="ui-content second">
         <div class="Carte grid">
@@ -85,7 +90,7 @@
             </div>
             <div>
 <!--                <img style="width: 40vw; float:right " src="css/Screen%20Shot%202018-09-21%20at%208.12.15%20PM.png"/>-->
-                  <label ><h1 style="padding-bottom:30px; text-align: center;"> Nom de l'organisation</h1></label><br>
+                  <label ><h1 id="organisation" style="padding-bottom:30px; text-align: center;"></h1></label><br>
             </div>
                     <table style="width: 100%; line-height: 28px">
                         <tr>
@@ -107,7 +112,8 @@
             <div style="text-align: center;">                         
                 <svg id="barcode"></svg>
             <script>
-            JsBarcode("#barcode", "grpcmrt45d",{
+//                localStorage.membreNumber = localStorage.membreNumber+"abc";
+            JsBarcode("#barcode", localStorage.membreNumber,{ 
               height: 50,
               fontSize: 0,
               background: "#f9f9f9"
@@ -158,42 +164,48 @@
 -->
 <div data-role="page" id="page3"> 
 <div data-role="header" style="overflow:hidden; background-color: #333; color: white;" data-id="persistent" data-position="fixed">
-<h1 style=" font-weight:normal !important;font-size: 1.1em;">Liste des marchands</h1>
-
+    <h1 style=" font-weight:normal !important;font-size: 1.1em;">Liste des marchands</h1>
     <a data-id="persistent" href="#page2" data-transition="slide"> Carte</a>
     <a data-id="persistent" id="OffresSpeciale" onclick="offres()"> Offres spéciales</a>
-
 </div><!-- /header -->
  
 <div data-role="collapsibleset" data-theme="b" data-content-theme="e">
-    
+    <script>
+//        var a= 1;
+//         $('#provinciaux').style.color="red";
+    </script>
 <!--    *************** Restauration page ***************-->
 <!--    *************************************************-->
-    <div id="status-message" data-role="collapsible">
-               <h1>Restauration</h1> 
-        <div id="restauration"></div>
-        
+<!--    <div id="status-message" data-role="collapsible">-->
+    <div id="restauration"> 
+    <div data-role="collapsible">
+            <h1 >Restauration</h1> 
+            <div id="restaurationDIV"> </div>
+    </div>
     </div>
 <!--    ***************   Service page    ***************-->
 <!--    *************************************************-->
+    <div  id="service">
     <div data-role="collapsible">
-        <h1>Service</h1>
-        <div id="service"></div>
-        
+            <h1 >Service</h1>
+            <div id="serviceDIV"> </div>
+    </div>
     </div> 
 <!--    ****************  Mobilier page  ****************-->
 <!--    *************************************************--> 
-    <div data-role="collapsible">
-        <h1>Mobilier</h1>
-        <div id="mobilier"></div>
-        
+    <div id="mobilier"> 
+    <div  data-role="collapsible">
+            <h1 >Mobilier</h1>
+            <div id="mobilierDIV"> </div>
+    </div>
     </div>
 <!--    ***************    Avantages provinciaux page    ***************-->
 <!--    ****************************************************************--> 
+    <div id="provinciaux"> 
     <div data-role="collapsible">
-        <h1>Avantages provinciaux</h1>
-        <div id="provinciaux"></div>
-        
+            <h1>Avantages provinciaux</h1>
+            <div id="provinciauxDIV"> </div>
+    </div>
     </div>
 </div>
 
@@ -202,8 +214,14 @@
 <!--    *************************************************--> 
     <div id="footer_2" data-role="footer" data-type="footer" data-position="fixed"  style="overflow:hidden; text-align: center;">
 <!--        data-id="persistent" to persist in the slide transition-->
-    <hp style="text-align:center;"><a  style="color: white;font-weight:normal !important;text-decoration: none !important;" href="http://www.amcreatives.ca" target="_blank">amcreatives.ca</a></hp>
+    <hp style="text-align:center;"><a  style="color: white;font-weight:normal !important;text-decoration: none !important;" href="http://www.amcreatives.ca" target="_blank">amcreatives.ca</a>&ensp;&ensp;&ensp;<a style="color: white;font-weight:normal !important;text-decoration: none !important;" href="http://amcreatives.ca/#politique" target="_blank">politique de confidentialité </a></hp>
     </div> <!-- Footer -->
+    
+    <script>
+//        var b= 2;
+//                 $('#provinciaux').color="blue";
+    ListeDesMarchands();
+    </script>
     
 </div><!-- /Page3 -->
 
@@ -232,7 +250,7 @@
             
             function loadStartCallBack() {
                 $('#status-message').text("En chargement ...");
-            }//listeDesMarchands
+            }
 
             } //onDeviceReady
         </script>
@@ -272,7 +290,7 @@
             
             function loadStartCallBack() {
                 $('#status-message').text("En chargement ...");
-            }//listeDesMarchands
+            }
 
             } //onDeviceReady
         </script>

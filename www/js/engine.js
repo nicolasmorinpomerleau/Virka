@@ -33,39 +33,107 @@ var nouveuMessage;
 function ListeDesMarchands(){
     
 //    $.getJSON("https://s3-eu-west-1.amazonaws.com/virtualcard/restauration.json",function(data,status){
-    $.getJSON(localStorage.urlMarchands,function(data,status){    
-            $('#restauration').empty();
-            $('#restauration').append(data[0].restauration);
-            $('#restauration').listview('refresh'); /* to refresh the div */
 
-    });
-    
-//    à modifier pour les url
-    $.getJSON("https://s3-eu-west-1.amazonaws.com/virtualcard/provinciaux.json",function(data,status){
-            $('#provinciaux').empty();
-            $('#provinciaux').append(data[0].provinciaux);
-            $('#provinciaux').listview('refresh');
+//    *************************************************************
+//    ************************ Restauration ************************
+//    *************************************************************
+    if(localStorage.boolrestauration  == "false"){
+        document.getElementById("restauration").style.display="none";
+//        $('#restauration').style.display="none";
+//         $('#restauration').listview('refresh');
+        }
+//$('#MyListView').listview().listview('refresh');
+    else{
+        $.getJSON(localStorage.urlMarchands,function(data,status){    
+                $('#restaurationDIV').empty();
+                $('#restaurationDIV').append(data[0].restauration);
+                $('#restaurationDIV').listview('refresh'); /* to refresh the div */
+        });
+    };
+//    *************************************************************
 
-    });
-    
-    $.getJSON("https://s3-eu-west-1.amazonaws.com/virtualcard/mobilier.json",function(data,status){
-            $('#mobilier').empty();
-            $('#mobilier').append(data[0].mobilier);
-            $('#mobilier').listview('refresh');
+//    *************************************************************
+//    ************************ Provinciaux ************************
+//    *************************************************************
+//                    à modifier pour les urls
+    if(localStorage.boolprovinciaux  == "false"){
+         document.getElementById("provinciaux").style.display="none";
+//        $('#provinciaux').style.display="none";
+//         $('#provinciaux').listview('refresh');
+    }
+    else{ 
+        $.getJSON(localStorage.boolprovinciaux,function(data,status){
+                $('#provinciauxDIV').empty();
+                $('#provinciauxDIV').append(data[0].provinciaux);
+                $('#provinciauxDIV').listview('refresh');
 
-    });
+        });
+    };
+//    *************************************************************
+
     
-    $.getJSON("https://s3-eu-west-1.amazonaws.com/virtualcard/service.json",function(data,status){
-            $('#service').empty();
-            $('#service').append(data[0].service);
-            $('#service').listview('refresh');
-    });
+//    *************************************************************
+//    ************************ Mobilier ************************
+//    *************************************************************
+    if(localStorage.boolmobilier  == "false"){
+        document.getElementById("mobilier").style.display="none";
+//        $('mobilier').style.display="none";
+//         $('#mobilier').listview('refresh');
+    }
+    else{
+        $.getJSON(localStorage.boolmobilier,function(data,status){
+                $('#mobilierDIV').empty();
+                $('#mobilierDIV').append(data[0].mobilier);
+                $('#mobilierDIV').listview('refresh');
+
+        });
+    };
+//    *************************************************************
+
+//    *************************************************************
+//    ************************ Service ************************
+//    *************************************************************
+   
+    if(localStorage.boolservices  == "false"){
+        document.getElementById("service").style.display="none";
+//        $('#service').style.display="none";
+//         $('#service').listview('refresh');
+    }
+    else{
+        $.getJSON(localStorage.boolservices,function(data,status){
+                $('#serviceDIV').empty();
+                $('#serviceDIV').append(data[0].service);
+                $('#serviceDIV').listview('refresh');
+        });
+    };
+//    *************************************************************
+
+//    *************************************************************
+//    ************************ Autre ************************
+//    *************************************************************
+    if(localStorage.boolautre  == "false"){
+        document.getElementById("autre").style.display="none";
+//        $('#autre').style.display="none";
+    }
+    else{
+        $.getJSON(localStorage.boolautre,function(data,status){
+                $('#autre').empty();
+                $('#autre').append(data[0].autre);
+                $('#autre').listview('refresh');
+        });
+    }
+//    *************************************************************
+
+//    *************************************************************
+//    ************************ Offres Spéciale ********************
+//    *************************************************************
+    if(localStorage.booloffers == "false"){
+        document.getElementById("OffresSpeciale").style.display="none";
+//        $('#OffresSpeciale').style.display="none";
+    }
+
+//    *************************************************************
     
-    $.getJSON("https://s3-eu-west-1.amazonaws.com/virtualcard/service.json",function(data,status){
-            $('#autre').empty();
-            $('#autre').append(data[0].autre);
-            $('#autre').listview('refresh');
-    });
 };
 
 
@@ -77,28 +145,40 @@ $(function(){
             compagnyID.innerHTML = localStorage.compagny; 
             numeroID             = document.getElementById("Numero");
             numeroID.innerHTML   = localStorage.membreNumber;
+            organisationID       = document.getElementById("organisation");
+            organisationID.innerHTML = localStorage.organisation;
             
             //        setup display in html
-        localStorage.booloffers = true;
-        if(localStorage.booloffers){
-            document.getElementById("OffresSpeciale").style.visibility="hidden";
-        }
+//        localStorage.booloffers = true;
+//            localStorage.boolmarchandlist = "true";
+//            localStorage.boolevents = "false";
+//            
+//            localStorage.boolrestauration  = "true";
+//            localStorage.boolservices = "false";
+//            localStorage.boolmobilier = "true";
+//            localStorage.boolprovinciaux = "false";
+//            localStorage.booloffers = "false";
+            
+//        if(localStorage.booloffers == "true"){
+//            OffresSpeciale = 
+//                document.getElementById("OffresSpeciale").style.display="none";
+//            OffresSpeciale.className += 'Hide';
+//        };
         
-        if(!localStorage.boolevents ){
-            
-        }
+//        if(localStorage.boolevents == "false"){
+//             document.getElementById("events").style.display="none";
+//        };
+//        
+//        if(localStorage.boolmarchandlist == "false"){
+//             document.getElementById("ListeDesMarchands").style.display="none";
+//        };
         
-        if(!localStorage.boolmarchandlist){
-            
-        }
-
-        if(!localStorage.boolrestauration){
-            
-        }
-
-        if(!localStorage.boolservices){
-    
-        }
+            if(localStorage.boolmarchandlist == "false"){
+                document.getElementById('ListeDesMarchands').style.display="none";
+            }
+            if(localStorage.boolevents == "false"){
+                document.getElementById('events').style.display="none";
+            }
             
             window.location.href = "#page2";
             }
@@ -112,7 +192,8 @@ function Validate(){
     code  = document.getElementById('code').value; 
     
     $.ajax({
-    url:'https://5m1qfi37ie.execute-api.eu-west-1.amazonaws.com/Dev/emailCode',
+//    url:'https://5m1qfi37ie.execute-api.eu-west-1.amazonaws.com/Dev/emailCode',
+    url: 'https://mr0pwkh059.execute-api.eu-west-1.amazonaws.com/Dev/emailCode',
 
     type: 'POST',
     dataType: 'json',
@@ -127,6 +208,9 @@ function Validate(){
     compagnyID.innerHTML = res.info.company;
     numeroID           = document.getElementById("Numero");
     numeroID.innerHTML = "#"+res.info.memberNumber;
+    organisationID     = document.getElementById("organisation");
+    organisationID.innerHTML = res.info.organisation;
+        
 //    urlRestauration       = res.info.restauration;
 //    urlMobilier           = res.info.mobilier;
 //    urlService            = res.info.service;
@@ -135,6 +219,7 @@ function Validate(){
 //    urlEvents          = res.info.urlEvents;
 //    urlOffers          = res.info.urlOffers;
 //    codeBar            = res.info.codeBar;     
+
     localStorage.Email         = email;
     localStorage.code          = code;
 
@@ -146,10 +231,12 @@ function Validate(){
     localStorage.boolservices     = res.info.boolservices;
     localStorage.boolmobilier     = res.info.boolmobilier;
     localStorage.boolprovinciaux  = res.info.boolprovinciaux;
+    localStorage.boolautre  = res.info.boolautre;
 
 //        pour afficher sur la carte
     localStorage.name          = res.info.name;
     localStorage.compagny      = res.info.company;
+    localStorage.organisation  = res.info.organisation;
     localStorage.membreNumber  = "#"+res.info.memberNumber;
         
 //        url WebView
