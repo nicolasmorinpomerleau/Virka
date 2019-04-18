@@ -91,19 +91,73 @@ function ListeDesMarchands(){
 //    *************************************************************
 
 //    *************************************************************
-//    ************************ Service ************************
+//    ************************ assurance service ***************
 //    *************************************************************
-   
-    if(localStorage.boolservices  == "false"){
-        document.getElementById("service").style.display="none";
+   localStorage.boolassurance = true;
+    if(localStorage.boolassurance  == "false"){
+        document.getElementById("assurance").style.display="none";
 //        $('#service').style.display="none";
 //         $('#service').listview('refresh');
     }
     else{
         $.getJSON(localStorage.boolservices,function(data,status){
-                $('#serviceDIV').empty();
-                $('#serviceDIV').append(data[0].service);
-                $('#serviceDIV').listview('refresh');
+                $('#assuranceDIV').empty();
+                $('#assuranceDIV').append(data[0].service);
+                $('#assuranceDIV').listview('refresh');
+        });
+    };
+//    *************************************************************
+
+//    *************************************************************
+//    ************************ service conseil ********************
+//    *************************************************************
+   localStorage.boolserviceconseil = true;
+    if(localStorage.boolserviceconseil  == "false"){
+        document.getElementById("serviceconseil").style.display="none";
+//        $('#service').style.display="none";
+//         $('#service').listview('refresh');
+    }
+    else{
+        $.getJSON(localStorage.boolservices,function(data,status){
+                $('#serviceconseilDIV').empty();
+                $('#serviceconseilDIV').append(data[0].service);
+                $('#serviceconseilDIV').listview('refresh');
+        });
+    };
+//    *************************************************************
+
+//    *************************************************************
+//    ************************ Autres service *********************
+//    *************************************************************
+//   localStorage.boolautreservices = true;
+    if(localStorage.boolautreservices  == "false"){
+        document.getElementById("autreservice").style.display="none";
+//        $('#service').style.display="none";
+//         $('#service').listview('refresh');
+    }
+    else{
+        $.getJSON(localStorage.boolservices,function(data,status){
+                $('#autreserviceDIV').empty();
+                $('#autreserviceDIV').append(data[0].service);
+                $('#autreserviceDIV').listview('refresh');
+        });
+    };
+//    *************************************************************
+
+//    *************************************************************
+//    ************************ hebergement service ****************
+//    *************************************************************
+   localStorage.boolhebergement = true;
+    if(localStorage.boolhebergement  == "false"){
+        document.getElementById("hebergement").style.display="none";
+//        $('#service').style.display="none";
+//         $('#service').listview('refresh');
+    }
+    else{
+        $.getJSON(localStorage.boolservices,function(data,status){
+                $('#hebergementDIV').empty();
+                $('#hebergementDIV').append(data[0].service);
+                $('#hebergementDIV').listview('refresh');
         });
     };
 //    *************************************************************
@@ -140,13 +194,18 @@ function ListeDesMarchands(){
 $(function(){
         if(localStorage.Email!=undefined && localStorage.code != undefined){
             nameID               = document.getElementById("name");
-            nameID.innerHTML     = localStorage.name;
+//            Démo
+//            nameID.innerHTML     = localStorage.name;
             compagnyID           = document.getElementById("compagny");
-            compagnyID.innerHTML = localStorage.compagny; 
+            nameID.innerHTML          = "Alain Gagné";
+//            Démo
+//            compagnyID.innerHTML = localStorage.compagny; 
+            compagnyID.innerHTML = "Aliments Trigone inc.";
             numeroID             = document.getElementById("Numero");
             numeroID.innerHTML   = localStorage.membreNumber;
             organisationID       = document.getElementById("organisation");
-            organisationID.innerHTML = localStorage.organisation;
+//            Version Démo
+//            organisationID.innerHTML = localStorage.organisation;
             
             //        setup display in html
 //        localStorage.booloffers = true;
@@ -172,7 +231,7 @@ $(function(){
 //        if(localStorage.boolmarchandlist == "false"){
 //             document.getElementById("ListeDesMarchands").style.display="none";
 //        };
-        
+        localStorage.boolmarchandlist = true;
             if(localStorage.boolmarchandlist == "false"){
                 document.getElementById('ListeDesMarchands').style.display="none";
             }
@@ -203,9 +262,11 @@ function Validate(){
     success: function(res) {
     if(res.answer == 'userFind'){
     nameID               = document.getElementById("name");
-    nameID.innerHTML     = res.info.name;
+//        Démo
+//    nameID.innerHTML     = res.info.name;
     compagnyID           = document.getElementById("compagny");
-    compagnyID.innerHTML = res.info.company;
+//        Démo
+//    compagnyID.innerHTML = res.info.company;
     numeroID           = document.getElementById("Numero");
     numeroID.innerHTML = "#"+res.info.memberNumber;
     organisationID     = document.getElementById("organisation");
@@ -228,10 +289,13 @@ function Validate(){
     localStorage.boolevents       = res.info.boolevents;
     localStorage.boolmarchandlist = res.info.boolmarchandlist;
     localStorage.boolrestauration = res.info.boolrestauration;
-    localStorage.boolservices     = res.info.boolservices;
+    localStorage.boolautreservices  = res.info.boolautreservices;
     localStorage.boolmobilier     = res.info.boolmobilier;
     localStorage.boolprovinciaux  = res.info.boolprovinciaux;
-    localStorage.boolautre  = res.info.boolautre;
+    localStorage.boolautre        = res.info.boolautre;
+    localStorage.boolassurance    = res.info.boolassurance;
+    localStorage.boolserviceconseil = res.info.boolserviceconseil;
+    localStorage.boolhebergement   = res.info.boolhebergement;
 
 //        pour afficher sur la carte
     localStorage.name          = res.info.name;
