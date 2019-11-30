@@ -91,73 +91,19 @@ function ListeDesMarchands(){
 //    *************************************************************
 
 //    *************************************************************
-//    ************************ assurance service ***************
+//    ************************ Service ************************
 //    *************************************************************
-   localStorage.boolassurance = true;
-    if(localStorage.boolassurance  == "false"){
-        document.getElementById("assurance").style.display="none";
+   
+    if(localStorage.boolservices  == "false"){
+        document.getElementById("service").style.display="none";
 //        $('#service').style.display="none";
 //         $('#service').listview('refresh');
     }
     else{
         $.getJSON(localStorage.boolservices,function(data,status){
-                $('#assuranceDIV').empty();
-                $('#assuranceDIV').append(data[0].service);
-                $('#assuranceDIV').listview('refresh');
-        });
-    };
-//    *************************************************************
-
-//    *************************************************************
-//    ************************ service conseil ********************
-//    *************************************************************
-   localStorage.boolserviceconseil = true;
-    if(localStorage.boolserviceconseil  == "false"){
-        document.getElementById("serviceconseil").style.display="none";
-//        $('#service').style.display="none";
-//         $('#service').listview('refresh');
-    }
-    else{
-        $.getJSON(localStorage.boolservices,function(data,status){
-                $('#serviceconseilDIV').empty();
-                $('#serviceconseilDIV').append(data[0].service);
-                $('#serviceconseilDIV').listview('refresh');
-        });
-    };
-//    *************************************************************
-
-//    *************************************************************
-//    ************************ Autres service *********************
-//    *************************************************************
-//   localStorage.boolautreservices = true;
-    if(localStorage.boolautreservices  == "false"){
-        document.getElementById("autreservice").style.display="none";
-//        $('#service').style.display="none";
-//         $('#service').listview('refresh');
-    }
-    else{
-        $.getJSON(localStorage.boolservices,function(data,status){
-                $('#autreserviceDIV').empty();
-                $('#autreserviceDIV').append(data[0].service);
-                $('#autreserviceDIV').listview('refresh');
-        });
-    };
-//    *************************************************************
-
-//    *************************************************************
-//    ************************ hebergement service ****************
-//    *************************************************************
-   localStorage.boolhebergement = true;
-    if(localStorage.boolhebergement  == "false"){
-        document.getElementById("hebergement").style.display="none";
-//        $('#service').style.display="none";
-//         $('#service').listview('refresh');
-    }
-    else{
-        $.getJSON(localStorage.boolservices,function(data,status){
-                $('#hebergementDIV').empty();
-                $('#hebergementDIV').append(data[0].service);
-                $('#hebergementDIV').listview('refresh');
+                $('#serviceDIV').empty();
+                $('#serviceDIV').append(data[0].service);
+                $('#serviceDIV').listview('refresh');
         });
     };
 //    *************************************************************
@@ -194,18 +140,13 @@ function ListeDesMarchands(){
 $(function(){
         if(localStorage.Email!=undefined && localStorage.code != undefined){
             nameID               = document.getElementById("name");
-//            Démo
-//            nameID.innerHTML     = localStorage.name;
+            nameID.innerHTML     = localStorage.name;
             compagnyID           = document.getElementById("compagny");
-            nameID.innerHTML          = "Alain Gagné";
-//            Démo
-//            compagnyID.innerHTML = localStorage.compagny; 
-            compagnyID.innerHTML = "Aliments Trigone inc.";
+            compagnyID.innerHTML = localStorage.compagny; 
             numeroID             = document.getElementById("Numero");
             numeroID.innerHTML   = localStorage.membreNumber;
             organisationID       = document.getElementById("organisation");
-//            Version Démo
-//            organisationID.innerHTML = localStorage.organisation;
+            organisationID.innerHTML = localStorage.organisation;
             
             //        setup display in html
 //        localStorage.booloffers = true;
@@ -231,7 +172,7 @@ $(function(){
 //        if(localStorage.boolmarchandlist == "false"){
 //             document.getElementById("ListeDesMarchands").style.display="none";
 //        };
-        localStorage.boolmarchandlist = true;
+        
             if(localStorage.boolmarchandlist == "false"){
                 document.getElementById('ListeDesMarchands').style.display="none";
             }
@@ -251,8 +192,8 @@ function Validate(){
     code  = document.getElementById('code').value; 
     
     $.ajax({
-//    url:'https://5m1qfi37ie.execute-api.eu-west-1.amazonaws.com/Dev/emailCode',
-    url: 'https://mr0pwkh059.execute-api.eu-west-1.amazonaws.com/Dev/emailCode',
+    url:'https://5m1qfi37ie.execute-api.eu-west-1.amazonaws.com/Dev/emailCode',
+//    url: 'https://mr0pwkh059.execute-api.eu-west-1.amazonaws.com/Dev/emailCode',
 
     type: 'POST',
     dataType: 'json',
@@ -262,11 +203,9 @@ function Validate(){
     success: function(res) {
     if(res.answer == 'userFind'){
     nameID               = document.getElementById("name");
-//        Démo
-//    nameID.innerHTML     = res.info.name;
+    nameID.innerHTML     = res.info.name;
     compagnyID           = document.getElementById("compagny");
-//        Démo
-//    compagnyID.innerHTML = res.info.company;
+    compagnyID.innerHTML = res.info.company;
     numeroID           = document.getElementById("Numero");
     numeroID.innerHTML = "#"+res.info.memberNumber;
     organisationID     = document.getElementById("organisation");
@@ -289,13 +228,10 @@ function Validate(){
     localStorage.boolevents       = res.info.boolevents;
     localStorage.boolmarchandlist = res.info.boolmarchandlist;
     localStorage.boolrestauration = res.info.boolrestauration;
-    localStorage.boolautreservices  = res.info.boolautreservices;
+    localStorage.boolservices     = res.info.boolservices;
     localStorage.boolmobilier     = res.info.boolmobilier;
     localStorage.boolprovinciaux  = res.info.boolprovinciaux;
-    localStorage.boolautre        = res.info.boolautre;
-    localStorage.boolassurance    = res.info.boolassurance;
-    localStorage.boolserviceconseil = res.info.boolserviceconseil;
-    localStorage.boolhebergement   = res.info.boolhebergement;
+    localStorage.boolautre  = res.info.boolautre;
 
 //        pour afficher sur la carte
     localStorage.name          = res.info.name;
